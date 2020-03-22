@@ -1,7 +1,7 @@
 # Javascript Algorithms
 ---
 
-###### 1. Write an algoritm for the below problem statement.
+###### 1. Write an algorithm for the below problem statement.
 
 ```
  There are 8 houses in a row. Some houses are empty and some are not, it will be represented with 1 and 0. 
@@ -44,7 +44,32 @@ Example: findStatus([1,1,1,0,1,0,1,0], 5)
   },[]) 
  };
  
- findStatus([1,1,1,0,1,0,1,0], 5)
+ findStatus([1,1,1,0,1,0,1,0], 5) = > output: [1, 0, 1, 0, 1, 0, 0, 1]
+```
+
+</p>
+</details>  
+
+###### 2. Write an algorithm o remove all duplicates and non repeated values from an array.
+
+```
+Sample Input:  [1, 1, 2, 3, 3, 3, 4, 2, 5, 5]
+Sample output: [1, 2, 3, 5] (4 not repaeated in the input array)
+```
+
+<details>
+<summary>Answer...</summary>
+<p>
+
+```
+const getArray = arr => arr.sort((a,b)=>(a-b)).reduce((a,c,i,ar)=>{
+  return (!a.includes(c) && (ar[i-1] === c || ar[i+1] ===c)) ? [...a, c] : [...a]
+},[])
+
+In the above code apart for checking unique values using array reducer, 
+we're also checking if the main array previous or next index has same values. 
+This way we can includes only repeated values from main array.
+
 ```
 
 </p>
