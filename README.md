@@ -35,7 +35,7 @@ Example: findStatus([1,1,1,0,1,0,1,0], 5)
 
 ```
  const findStatus = (arr, day) =>{
-  return (day === 1) ? arr : findStatus(checkStatus(arr), day-1);
+  return (day === 0) ? arr : findStatus(checkStatus(arr), day-1);
  };
  
  const checkStatus = arr => {
@@ -76,11 +76,39 @@ This way we can includes only repeated values from main array.
 
 ###### 3. Write a program for binary search pattern.
 
-[Problem Statement| https://github.com/ajayg415/Javascript-Algorithms/issues/1]
-
 ```
-Sample Input:  Pattern: '010', Search String: 'amazing'
-Sample output: 2
+Binary match pattern is kind of search which returns the number of times the pattern is matched 
+in a given string.
+
+Write a function which returns the number of times the pattern is matched in a given string. 
+The pattern will be in binary format meaning combination of 0 and 1's.
+
+Rules: if the number is 0 in the pattern then it should be vowel and if the number is 1 then 
+it should be consonant. Searching string will be of lower case only and will be of one word only.
+Pattern will be in a string.
+
+Example 1: :
+Input : Pattern: '010', Search String: 'amazing'
+Output: 2
+
+Explanation: In the above pattern first and last numbers are zero's so the letters should start and end 
+with vowel and as the second number is 1, the middle letter is consonant. So the function should search 
+for such kind of words in the word and return the count. In the above given input it matches only twice 
+and they are:
+'ama'
+'azi'
+Example 2:
+Input: Pattern: 100, Search String : 'seesaw'
+Output: 1
+
+Matches are:
+
+'see'
+function binaryMatchPattern(searchString, pattern) {
+     // write the code over here
+
+ 
+}
 ```
 
 <details>
