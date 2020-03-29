@@ -54,7 +54,7 @@ Example: findStatus([1,1,1,0,1,0,1,0], 5)
 
 ```
 Sample Input:  [1, 1, 2, 3, 3, 3, 4, 2, 5, 5]
-Sample output: [1, 2, 3, 5] (4 not repaeated in the input array)
+Sample output: [1, 2, 3, 5] (4 not repaeated in the output array)
 ```
 
 <details>
