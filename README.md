@@ -89,25 +89,25 @@ Sample output: 2
 
 ```
  function binaryMatchPattern(searchString, pattern){
-	 let i = searchString.length;
-	 const searchStringLength = i;
-	 const patternLength = pattern.length;
-	 let updatedPattern = pattern
-							.replace(/0/g, '[aeiou]')
-							.replace(/1/g, '[^aeiou]');
-	 const patternToMatch = new RegExp(updatedPattern);
-	 let matchingItems = 0;
-	 
-	 while(i >= patternLength) {
-		const slicedString = searchString.substr(searchStringLength - i, patternLength);
-		
-		// Below code is saving the matched items. but we dont need it hence commenting it.
-		//patternToMatch.test(slicedString) && matchingItems.push(slicedString);
-		
-		patternToMatch.test(slicedString) && matchingItems++
-	    i--;
-	 }
-	 return matchingItems;
+     let i = searchString.length;
+     const searchStringLength = i;
+     const patternLength = pattern.length;
+     let updatedPattern = pattern
+                            .replace(/0/g, '[aeiou]')
+                            .replace(/1/g, '[b-df-hj-np-tv-z]');
+     const patternToMatch = new RegExp(updatedPattern);
+     let matchingItems = 0;
+     
+     while(i >= patternLength) {
+        const slicedString = searchString.substr(searchStringLength - i, patternLength);
+        
+        // Below code is saving the matched items. but we dont need it hence commenting it.
+        //patternToMatch.test(slicedString) && matchingItems.push(slicedString);
+        
+        patternToMatch.test(slicedString) && matchingItems++
+        i--;
+     }
+     return matchingItems;
  }
 ```
 
