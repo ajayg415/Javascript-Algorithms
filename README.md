@@ -72,4 +72,48 @@ we're also checking if the main array previous or next index has same values.
 This way we can includes only repeated values from main array.
 
 </p>
+</details>
+
+###### 3. Write a program for binary search pattern.
+
+[Problem Statement| https://github.com/ajayg415/Javascript-Algorithms/issues/1]
+
+```
+Sample Input:  Pattern: '010', Search String: 'amazing'
+Sample output: 2
+```
+
+<details>
+<summary>Answer...</summary>
+<p>
+
+```
+ function binaryMatchPattern(searchString, pattern){
+     let i = searchString.length;
+     const searchStringLength = i;
+     const patternLength = pattern.length;
+     let updatedPattern = pattern
+                            .replace(/0/g, '[aeiou]')
+                            .replace(/1/g, '[b-df-hj-np-tv-z]');
+     const patternToMatch = new RegExp(updatedPattern);
+     let matchingItems = 0;
+     
+     while(i >= patternLength) {
+        const slicedString = searchString.substr(searchStringLength - i, patternLength);
+        
+        // Below code is saving the matched items. but we dont need it hence commenting it.
+        //patternToMatch.test(slicedString) && matchingItems.push(slicedString);
+        
+        patternToMatch.test(slicedString) && matchingItems++
+        i--;
+     }
+     return matchingItems;
+ }
+```
+
+Take away points:
+- We are dynamically creating the regexp using the Regular Expression constructor.
+- Leveraging the build in methods instead of creating our own methods for looping and matching.
+
+</p>
 </details>  
