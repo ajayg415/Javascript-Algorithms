@@ -115,7 +115,9 @@ function binaryMatchPattern(searchString, pattern) {
 <summary>Answer...</summary>
 <p>
 
+Solution 1: 
 ```
+
  function binaryMatchPattern(searchString, pattern){
      let i = searchString.length;
      const searchStringLength = i;
@@ -142,6 +144,24 @@ function binaryMatchPattern(searchString, pattern) {
 Take away points:
 - We are dynamically creating the regexp using the Regular Expression constructor.
 - Leveraging the build in methods instead of creating our own methods for looping and matching.
+
+Soltion 2:
+```
+const getBoolean = str => {
+  // returns Boolean representation of given string. Ex: Amazon => 010101
+  return str.replace(/[^aeiou]/g,'1').replace(/[aeiou]/g,'0'); 
+}
+
+const binaryMatchPattern = (searchString, pattern) => {
+  const len = pattern.length;
+ 
+  return searchString.split('').reduce((a,c,i)=>{
+   const subStr = searchString.substr(i-1, len);
+   return (subStr.length === len && getBoolean(subStr) === pattern) ? (a +1) : a;
+  }, 0)
+}
+
+```
 
 </p>
 </details>  
