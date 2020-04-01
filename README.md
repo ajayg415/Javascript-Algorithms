@@ -180,10 +180,12 @@ output: true
 
 Example 3: '[{()]'
 output: true
+```
 <details>
 <summary>Answer...</summary>
 <p>
-
+ 
+```
 Solution:
 var a = '[{[({})]}]';
 var b = '[{}()]';
