@@ -165,8 +165,9 @@ const binaryMatchPattern = (searchString, pattern) => {
 
 
 </p>
-</details>  
-####### 4. Write a program for the given string is a balanced string or not
+</details>
+
+###### 4. Write a program for the given string is a balanced string or not
 
 ``` 
 If the orders of “{“,”}”,”(“,”)”,”[“,”]” are correct in a string is called Balanced string.
@@ -179,6 +180,9 @@ output: true
 
 Example 3: '[{()]'
 output: true
+<details>
+<summary>Answer...</summary>
+<p>
 
 Solution:
 var a = '[{[({})]}]';
@@ -209,4 +213,6 @@ isBalancedString(a) // true
 isBalancedString(b) // true
 isBalancedString(c) // false
 
+</p>
+</details>
 ```
