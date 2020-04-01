@@ -163,5 +163,50 @@ const binaryMatchPattern = (searchString, pattern) => {
 
 ```
 
+
 </p>
 </details>  
+####### 4. Write a program for the given string is a balanced string or not
+
+``` 
+If the orders of “{“,”}”,”(“,”)”,”[“,”]” are correct in a string is called Balanced string.
+
+Example 1:  '[{[({})]}]'
+output: true
+
+Example 2: '[{}()]' 
+output: true
+
+Example 3: '[{()]'
+output: true
+
+Solution:
+var a = '[{[({})]}]';
+var b = '[{}()]';
+var c = '[{()]';
+
+function isBalancedString(abc){
+  var flag = true;
+  var obj = {
+    ']': '[',
+    ')' : '(',
+    '}' : '{'
+  }
+  var stack = [];
+  for(var k = 0; k < abc.length;k++) {
+      if(abc[k] === '{' || abc[k] === '[' || abc[k] === '(') {
+         stack.push(abc[k])
+      }else{
+         if(obj[abc[k]] === stack[stack.length-1]){
+          stack.pop();
+         }
+      }    
+  }
+  return stack.length === 0 ? true: false
+}
+
+isBalancedString(a) // true
+isBalancedString(b) // true
+isBalancedString(c) // false
+
+```
