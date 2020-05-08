@@ -3,7 +3,7 @@
 
 ###### 1. Write an algorithm for the below problem statement.
 
-```
+
  There are 8 houses in a row. Some houses are empty and some are not, it will be represented with 1 and 0. 
  
  On Day 1 let’s say first 3 houses are active so it will be represented like [1 1 1], 
@@ -16,35 +16,36 @@
  So day 2 status for first 3 houses will be [1 0 1].  
  
 Example:
+```js
 Sample Input:  [1 0 1 1 0 0  1 0]
 Sample Day 1 Output -> [1 0 1 1 0 0 1 0]
 Sample Day 2 Output -> [0 0 1 1 1 1 0 1]
 Sample Day 3 Output -> [0 1 1 0 0 1 0 0]
 Sample Day 4 Output -> [1 1 1 1 1 0 1 0]
 Sample Day 5 Output -> [1 0 0 0 1 0 0 1]
-
+```
 Now, write an algorithm to find out the status of each house on any given day. 
 Example: findStatus([1,1,1,0,1,0,1,0], 5)
 
-```
+
 
 
 <details>
 <summary>Answer...</summary>
 <p>
 
-```
- const findStatus = (arr, day) =>{
-  return (day === 0) ? arr : findStatus(checkStatus(arr), day-1);
- };
+```js
+const findStatus = (arr, day) =>{
+ return (day === 0) ? arr : findStatus(checkStatus(arr), day-1);
+};
  
- const checkStatus = arr => {
-  return arr.reduce((a,c,i)=>{
-    return (arr[i-1] === arr[i+1]) ? [...a, 0] : [...a, 1]
-  },[]) 
- };
+const checkStatus = arr => {
+ return arr.reduce((a,c,i)=>{
+   return (arr[i-1] === arr[i+1]) ? [...a, 0] : [...a, 1]
+ },[]) 
+};
  
- findStatus([1,1,1,0,1,0,1,0], 5) = > output: [1, 0, 1, 0, 1, 0, 0, 1]
+findStatus([1,1,1,0,1,0,1,0], 5) = > output: [1, 0, 1, 0, 1, 0, 0, 1]
 ```
 
 </p>
@@ -52,7 +53,7 @@ Example: findStatus([1,1,1,0,1,0,1,0], 5)
 
 ###### 2. Write an algorithm to remove all duplicates and non repeated values from an array.
 
-```
+```js
 Sample Input:  [1, 1, 2, 3, 3, 3, 4, 2, 5, 5]
 Sample output: [1, 2, 3, 5] (4 not repaeated in the output array)
 ```
@@ -61,7 +62,7 @@ Sample output: [1, 2, 3, 5] (4 not repaeated in the output array)
 <summary>Answer...</summary>
 <p>
 
-```
+```js
 const getArray = arr => arr.sort((a,b)=>(a-b)).reduce((a,c,i,ar)=>{
   return (!a.includes(c) && (ar[i-1] === c || ar[i+1] === c)) ? [...a, c] : [...a]
 },[])
@@ -76,7 +77,6 @@ This way we can includes only repeated values from main array.
 
 ###### 3. Write a program for binary search pattern.
 
-```
 Binary match pattern is kind of search which returns the number of times the pattern is matched 
 in a given string.
 
@@ -102,12 +102,11 @@ Input: Pattern: 100, Search String : 'seesaw'
 Output: 1
 
 Matches are:
-
 'see'
-function binaryMatchPattern(searchString, pattern) {
-     // write the code over here
 
- 
+```js
+function binaryMatchPattern(searchString, pattern) {
+  //code goes here 
 }
 ```
 
@@ -116,8 +115,7 @@ function binaryMatchPattern(searchString, pattern) {
 <p>
 
 Solution 1: 
-```
-
+```js
  function binaryMatchPattern(searchString, pattern){
      let i = searchString.length;
      const searchStringLength = i;
@@ -146,7 +144,7 @@ Take away points:
 - Leveraging the build in methods instead of creating our own methods for looping and matching.
 
 Soltion 2:
-```
+```js
 const getBoolean = str => {
   // returns Boolean representation of given string. Ex: Amazon => 010101
   return str.replace(/[^aeiou]/g,'1').replace(/[aeiou]/g,'0'); 
@@ -169,7 +167,7 @@ const binaryMatchPattern = (searchString, pattern) => {
 
 ###### 4. Write a program for the given string is a balanced string or not
 
-``` 
+```js
 If the orders of “{“,”}”,”(“,”)”,”[“,”]” are correct in a string is called Balanced string.
 
 Example 1:  '[{[({})]}]'
@@ -185,7 +183,7 @@ output: true
 <summary>Answer...</summary>
 <p>
  
-```
+```js
 Solution:
 var a = '[{[({})]}]';
 var b = '[{}()]';
