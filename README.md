@@ -167,9 +167,9 @@ const binaryMatchPattern = (searchString, pattern) => {
 
 ###### 4. Write a program for the given string is a balanced string or not
 
-```js
-If the orders of “{“,”}”,”(“,”)”,”[“,”]” are correct in a string is called Balanced string.
 
+If the orders of “{“,”}”,”(“,”)”,”[“,”]” are correct in a string is called Balanced string.
+```js
 Example 1:  '[{[({})]}]'
 output: true
 
