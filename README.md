@@ -216,3 +216,61 @@ isBalancedString(c) // false
 </p>
 </details>
 ```
+
+###### 5. Write a program for finding the square root of a given number
+
+The below mentioned solution is not going to be accurate with `Math.sqrt` result. An attempt to
+get the desired result. But if you have any solution which gives more accurate results, you are welcome
+to issue a PR and your solution will be placed over here. 
+
+```js
+Input:  9
+output: 3
+
+Input: 544 
+output: 23.32
+
+Input: 90
+output: 9.48
+```
+<details>
+<summary>Answer...</summary>
+<p>
+ 
+```js
+Solution:
+function getSquareRoot(a){
+    let result = Math.ceil(a/2);
+    let updateClosestSqValue;
+    let sqOfresult = result * result;
+    
+    while(sqOfresult > a) {
+        result = Math.ceil(result/2);
+        sqOfresult = result * result;
+    }
+    let closestSqValue = result/2;
+    updateClosestSqValue = result + closestSqValue;
+    
+    while ((updateClosestSqValue*updateClosestSqValue) > a) {
+        updateClosestSqValue = result + (closestSqValue/2);
+        closestSqValue = closestSqValue/2
+    }
+    
+    let finalSqValue = result + closestSqValue;
+        
+    while( (finalSqValue*finalSqValue) < a) {
+     result = finalSqValue;
+      finalSqValue = finalSqValue + 0.01;     
+    }
+
+    return result;
+}
+
+getSquareRoot(9) // 3
+getSquareRoot(544) // 23.32
+getSquareRoot(90) // 9.47
+
+</p>
+</details>
+```
+
