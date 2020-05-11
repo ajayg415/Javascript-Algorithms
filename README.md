@@ -212,10 +212,10 @@ function isBalancedString(abc){
 isBalancedString(a) // true
 isBalancedString(b) // true
 isBalancedString(c) // false
-
+```
 </p>
 </details>
-```
+
 
 ###### 5. Write a program for finding the square root of a given number
 
@@ -269,8 +269,6 @@ function getSquareRoot(a){
 getSquareRoot(9) // 3
 getSquareRoot(544) // 23.32
 getSquareRoot(90) // 9.47
-
+```
 </p>
 </details>
-```
-
