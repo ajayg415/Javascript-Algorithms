@@ -272,3 +272,68 @@ getSquareRoot(90) // 9.47
 ```
 </p>
 </details>
+
+###### 6. Write a program for generation of N*N matrix for the given data set
+
+ 
+
+```js
+Input:  [9]
+Output: [9]
+
+Input: [4,5]
+Output: [[4,5],[0,0]]
+
+Input: [4,5,6]
+Output: [[4,5],[6,0]]
+
+Input: [5,6,7,8,9]
+Output: [[5,6,7],[8,9,0],[0,0,0]]
+```
+<details>
+<summary>Answer...</summary>
+<p>
+ 
+```js
+Solution:
+function getNmatrix (data) {
+ let dataLength = data.length;
+ let isNdetermined = false;
+ let n = 1;
+ let result = [];
+ let cachedN = n;
+
+ if (data.constructor.name !== "Array") {
+    return "Provided data argument is not of type array";
+ }
+
+ if (dataLength <= 1) {
+  return data;
+ }
+ 
+ while (n > 0 ) {
+    if(!isNdetermined) {
+        n = n+1;
+        isNdetermined = (n*n) >= dataLength; 
+        cachedN = n;
+    } else {
+        if(dataLength >= cachedN){
+            result.push(data.splice(0, cachedN));
+        } else {
+            const zeroArray = new Array(cachedN-dataLength).fill(0, 0);
+            result.push([...data.splice(0,cachedN), ...zeroArray]);
+        }
+            
+        dataLength = data.length;
+        n = n-1;
+    }
+ }
+  return result;
+}
+getNmatrix([9]) // [9]
+getNmatrix([4,5]) // [[4,5],[0,0]]
+getNmatrix([4,5,6]) // [[4,5],[6,0]]
+```
+</p>
+</details>
+
