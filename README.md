@@ -273,7 +273,7 @@ getSquareRoot(90) // 9.47
 </p>
 </details>
 
-###### 5. Write a program for generation of N*N matrix for the given data set
+###### 6. Write a program for generation of N*N matrix for the given data set
 
  
 
