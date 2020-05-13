@@ -296,13 +296,18 @@ Output: [[5,6,7],[8,9,0],[0,0,0]]
  
 ```js
 Solution:
-function getNmatrix(data) {
+function getNmatrix (data) {
  let dataLength = data.length;
  let isNdetermined = false;
  let n = 1;
  let result = [];
  let cachedN = n;
- if(dataLength <= 1) {
+
+ if (data.constructor.name !== "Array") {
+    return "Provided data argument is not of type array";
+ }
+
+ if (dataLength <= 1) {
   return data;
  }
  
