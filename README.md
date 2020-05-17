@@ -295,7 +295,7 @@ Output: [[5,6,7],[8,9,0],[0,0,0]]
 <p>
  
 ```js
-Solution:
+Solution 1:
 function getNmatrix (data) {
  let dataLength = data.length;
  let isNdetermined = false;
@@ -333,6 +333,20 @@ function getNmatrix (data) {
 getNmatrix([9]) // [9]
 getNmatrix([4,5]) // [[4,5],[0,0]]
 getNmatrix([4,5,6]) // [[4,5],[6,0]]
+
+
+Solution 2:
+function getNmatrix (data) {
+  if(data.length<=1){return data;}
+  var len = Math.ceil(Math.sqrt((data.length)));
+  var arr = [...data, ...new Array((len*len)-data.length).fill(0)];
+  var result = [];
+  
+  for(var i=0;i<len;i++){
+    result.push(arr.slice((i*len), ((i*len)+len)));
+  }
+  return result;
+}
 ```
 </p>
 </details>
