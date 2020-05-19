@@ -349,5 +349,50 @@ function getNmatrix (data) {
 }
 ```
 </p>
+
+###### 6. Write a program for grouping the Objects based on given properties
+```js
+Input: var array = [
+  { Id: "001", qty: 1, proj: 'A'}, 
+  { Id: "002", qty: 2, proj: 'A'}, 
+  { Id: "001", qty: 2,proj: 'B'}, 
+  { Id: "003", qty: 4, proj: 'C' },
+  { Id: "001", qty: 4, proj: 'B' }
+];
+
+Ouput:
+[{Id: "002", qty: 2, proj: "A"}Id: "002"proj: "A"qty: 2__proto__: Object
+temp2
+{Id: "001", qty: 1, proj: "A"},
+{Id: "002", qty: 2, proj: "A"},
+{Id: "001", qty: 6, proj: "B"},
+{Id: "003", qty: 4, proj: "C"}]
+
+```
+<details>
+<summary>Answer...</summary>
+<p>
+ 
+ ```js
+let groupyByKeys = (arr, keysarray) => {
+   let result = []
+   let temp = arr.reduce( (res, value) => {
+   let key = ''; 
+   for(var i of keysarray){ key = key + value[i] }
+   
+	  if(!res[key]){
+     res[key] = { Id:value.Id , qty: 0 , proj: value.proj};
+     result.push(res[key])
+	  }
+	  res[key].qty += value.qty;
+	  return res;
+   }, {});
+   console.log(result)
+}
+
+groupyByKeys(array, ['Id', 'proj'])
+ 
+ ```
+
 </details>
 
