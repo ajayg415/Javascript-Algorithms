@@ -349,8 +349,9 @@ function getNmatrix (data) {
 }
 ```
 </p>
+</details>
 
-###### 6. Write a program for grouping the Objects based on given properties
+###### 7. Write a program for grouping the Objects based on given properties
 ```js
 Input: var array = [
   { Id: "001", qty: 1, proj: 'A'}, 
