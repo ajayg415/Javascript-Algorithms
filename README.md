@@ -362,9 +362,7 @@ Input: var array = [
 ];
 
 Ouput:
-[{Id: "002", qty: 2, proj: "A"}Id: "002"proj: "A"qty: 2__proto__: Object
-temp2
-{Id: "001", qty: 1, proj: "A"},
+[{Id: "001", qty: 1, proj: "A"},
 {Id: "002", qty: 2, proj: "A"},
 {Id: "001", qty: 6, proj: "B"},
 {Id: "003", qty: 4, proj: "C"}]
