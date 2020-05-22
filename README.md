@@ -395,3 +395,53 @@ groupyByKeys(array, ['Id', 'proj'])
 
 </details>
 
+
+###### 7. Write a program for getting the given key occurrences in the object
+```js
+
+Example
+
+Input:
+srcObj = { a: 3, b: 4, c: { f: 3, d: 5 }, m: { f: 4 }, d: { g: { f: 6 }, f: 7 } };
+key = 'f' 
+
+Output:
+4
+<details>
+<summary>Answer...</summary>
+<p>
+ ```js
+  function getAllKeysCount(obj, desired){
+    var objkeys = [];
+    var desired = desired;
+    var desiredObj;
+    var getKeys = function(obj){
+      for(var key in obj){
+        if(typeof obj[key] === 'object'){
+           objkeys.push(key);
+           getKeys(obj[key])
+        }else {
+           objkeys.push(key);
+        } 
+      }
+      desiredObj = objkeys.reduce( function(acc, curr){
+        if(curr === desired) {
+          if(!acc[curr]){
+            acc[curr] = 1 
+          }else{
+            acc[curr] = acc[curr] + 1
+          } 
+        }
+        return acc;
+      }, {})
+      return desiredObj[desired];
+    }
+    return getKeys(obj)
+  }
+
+  var srcObj = { a: 3, b: 4, c: { f: 3, d: 5 }, m: { f: 4 }, d: { g: { f: 6 }, f: 7 } };
+  getAllKeysCount(srcObj, 'd') // 2
+  getAllKeysCount(srcObj, 'f') // 4 
+ ```
+</details>
+
