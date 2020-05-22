@@ -396,17 +396,18 @@ groupyByKeys(array, ['Id', 'proj'])
 </details>
 
 
-###### 7. Write a program for getting the given key occurrences in the object
+###### 8. Write a program for getting the given key occurrences in the object
 ```js
 
 Example
 
-Input:
+Input
 srcObj = { a: 3, b: 4, c: { f: 3, d: 5 }, m: { f: 4 }, d: { g: { f: 6 }, f: 7 } };
 key = 'f' 
 
 Output:
 4
+```
 <details>
 <summary>Answer...</summary>
 <p>
