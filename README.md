@@ -413,33 +413,24 @@ Output:
 <p>
 	
  ```js
-  function getAllKeysCount(obj, desired){
-    var objkeys = [];
-    var desired = desired;
-    var desiredObj;
-    var getKeys = function(obj){
-      for(var key in obj){
-        if(typeof obj[key] === 'object'){
-           objkeys.push(key);
-           getKeys(obj[key])
-        }else {
-           objkeys.push(key);
-        } 
-      }
-      desiredObj = objkeys.reduce( function(acc, curr){
-        if(curr === desired) {
-          if(!acc[curr]){
-            acc[curr] = 1 
-          }else{
-            acc[curr] = acc[curr] + 1
-          } 
-        }
-        return acc;
-      }, {})
-      return desiredObj[desired];
-    }
-    return getKeys(obj)
-  }
+  let getAllKeysCount = (obj, desired) => {
+   let objkeys = [];
+   let getKeys = (obj) => {
+     for(var key in obj){
+       objkeys.push(key);
+       if(typeof obj[key] === 'object'){
+          getKeys(obj[key])
+       }
+     }
+     return objkeys.reduce( (acc, curr) =>{
+       if(curr === desired) {
+        acc++;
+       }
+       return acc;
+     }, 0)
+   }
+   return getKeys(obj)
+ }
 
   var srcObj = { a: 3, b: 4, c: { f: 3, d: 5 }, m: { f: 4 }, d: { g: { f: 6 }, f: 7 } };
   getAllKeysCount(srcObj, 'd') // 2
