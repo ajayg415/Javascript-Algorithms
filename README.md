@@ -471,3 +471,43 @@ var twoSum = function(nums, target) {
  ```
 </details>
 
+
+###### 10. Sort the unsorted Array 
+We have one unsorted array with duplication.
+Write a logic to sort the array like below.
+
+```js
+
+Input =  [1, 5, 2, 1, 5, 2, 3, 5, 5, 1];
+
+Output = [1,2,3,5,1,2,5,1,5];
+
+hint: [[1,2,3,5],[1,2,5],[1,5]]
+```
+<details>
+<summary>Answer...</summary>
+<p>
+	
+ ```js
+var resTempArr = []
+var count = 0;
+var arr = [1, 5, 2, 1, 5, 2, 3, 5, 5, 1];
+var sortedArr = arr.sort((a,b) => a-b)
+for(var i = 0; i< sortedArr.length;i++){
+ if(sortedArr[i]== sortedArr[i-1]){
+    count++;
+    if(!resTempArr[count]) 
+       resTempArr[count] = []
+    resTempArr[count].push(sortedArr[i])    
+ }
+ if(sortedArr[i]!= sortedArr[i-1]){
+     count = 0;
+     if(!resTempArr[count]) 
+        resTempArr[count] = []
+     resTempArr[count].push(sortedArr[i])
+  }
+}
+console.log(resTempArr.flat())
+ ```
+</details>
+
