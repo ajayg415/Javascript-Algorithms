@@ -511,3 +511,64 @@ console.log(resTempArr.flat())
  ```
 </details>
 
+###### 11. There's an algorithms tournament taking place in which teams of programmers compete against each other to solve algorithmic problems as fast as possible. Teams compete in a round robin, where each team faces off against all other
+teams. Only two teams compete against each other at a time, and for each competition, one team is designated the home team, while the other team is the away team. In each competition there's always one winner and one loser; there
+are no ties. A team receives 3 points if it wins and 0 points if it loses. The winner of the tournament is the team that receives the most amount of points.
+
+Given an array of pairs representing the teams that have competed against each other and an array containing the results of each competition, write a function that returns the winner of the tournament. The input arrays are named competitions and results, respectively. The competitions array has elements in the form of [homeTown, awayTown] , where each team is a string of at most 30 characters representing the name of the team. The results array contains information about the winner of each corresponding competition in the competitions array. Specifically results[i] denotes the winner of competitions[i], where a 1 in the results array means that the home team in the corresponding competition won and a 0 means that the away team won.
+
+It's guaranteed that exactly one team will win the tournament and that each team will compete against all other teams exactly once. It's also guaranteed that the tournament will always have at least two teams.
+
+refer <a href="https://github.com/ajayg415/Javascript-Algorithms/issues/18">for more details</a>
+
+```js
+
+Sample Input
+const competitions = [
+  ["HTML", "C#"],
+  ["C#", "Python"],
+  ["Python", "HTML"],
+];
+const results = [1, 0, 0]
+
+Sample Output:  "Python"
+// C# beats HTML, Python Beats C#, and Python Beats HTML.
+// HTML - 0 points 
+// C# -  3 points
+// Python -  6 points
+```
+<details>
+<summary>Answer...</summary>
+<p>
+  
+ ```js
+function tournamentWinner(matchSchedule, results) {
+
+  const winnersObj = {}; let winnerTeam = '', winnerPoints = 3;
+
+  // reduce loop runs 'n' times so the complexity of it is O(n)
+  winnerTeam = results.reduce((wTeam, result, ind) => {
+    const eachMatchWinner = result ? competitions[ind][0] : competitions[ind][1];
+    
+    //below if/else condition runs for every n item so the complexity become
+    // O(n+1)
+    if(!winnersObj[eachMatchWinner]) {
+      winnersObj[eachMatchWinner] = 3;
+    
+    } else {
+      winnersObj[eachMatchWinner] = winnersObj[eachMatchWinner] + 3;
+      //Need to add this if condition also to complexity of the function
+      if(winnersObj[eachMatchWinner] > winnerPoints) {
+        wTeam = eachMatchWinner
+      }
+    }
+    return wTeam;
+    
+  }, winnerTeam);
+
+  return winnerTeam;
+}
+
+console.log(tournamentWinner(competitions, results));
+ ```
+</details>
