@@ -480,9 +480,9 @@ Write a logic to sort the array like below.
 
 Input =  [1, 5, 2, 1, 5, 2, 3, 5, 5, 1];
 
-Output = [1,2,3,5,1,2,5,1,5];
+Output = [1, 2, 3, 5, 1, 2, 5, 1, 5, 1];
 
-hint: [[1,2,3,5],[1,2,5],[1,5]]
+hint: [[1,2,3,5], [1,2,5], [1,5], [1]]
 ```
 <details>
 <summary>Answer...</summary>
